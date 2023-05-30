@@ -1,0 +1,29 @@
+
+
+<div class="d-flex flex-column">
+  <div class="p-2 d-flex flex-row mb-3 justify-content-between">
+    <h2><%= @task.title %></h2>
+     <%= link_to "Edit", edit_task_path(@task), class:"btn btn-primary" %>
+  </div>
+
+  <div class="p-2 flex-fill align-items-center p-3 mb-2 bg-body-secondary border rounded">
+    <p><%= @task.details %></p>
+  </div>
+  <div class="p-2">
+    <li class="list-group-item border-0">
+    <input class="form-check-input me-1" type="checkbox" <%= 'checked' if @task.completed %> id="<%= @task.title %>">
+    <label class="form-check-label" for="<%= @task.title %>">
+      <% if @task.completed == true %>
+       This task is completed
+      <% else %>
+      This task is not completed yet
+      <% end %>
+    </label>
+    </li>
+  </div>
+
+  <div class="mt-3">
+  <%= link_to "Back to list", tasks_path %>
+  </div>
+
+</div>
